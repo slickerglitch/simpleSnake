@@ -38,7 +38,7 @@ const drawScore = function () {
   contex.fillStyle = 'Brown';
   contex.textAlign = 'left';
   contex.textBaseline = 'top';
-  contex.fillText('points ' + score, blockSize, blockSize);
+  contex.fillText('points ' + score, blockSize + 10, blockSize + 10);
   //contex.fillText('Ssssssuper Snake!', 50, 50);
   //contex.fillText('points ' + score, 50, 50);
 

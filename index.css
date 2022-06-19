@@ -1,0 +1,25 @@
+
+
+#canvas {
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    display: block;
+}
+.buttonContainer {
+   position: fixed;
+   bottom: 10%;
+   left:45%;
+   width:80px;
+}
+.click-me {
+  color: blueviolet; 
+  float: left;
+}
+
+#canvas {
+    z-index: 0;
+}

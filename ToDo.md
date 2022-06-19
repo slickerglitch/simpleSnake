@@ -1,4 +1,3 @@
-/* eslint-disable no-alert */
 
 Set up the canvas;
 Set score to zero;
