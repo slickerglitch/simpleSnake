@@ -2,7 +2,7 @@ body {
   font: 'Menlo';
 }
 #canvas {
-    position: absolute;
+    position: relative;
     right: 0;
     left: 0;
     top: 0;
@@ -11,31 +11,32 @@ body {
     display: block;
 }
 .buttonContainer {
-   position: fixed;
-   bottom: 10%;
-   left:45%;
-   width:80px;
+  margin-top: 5%;
+  width:300px;
+  position: relative;
 }
 .click-me {
   color: blueviolet; 
-  float: left;
 }
 
 
 #keyboard {
   display:none;
 }
-.keybutton {
+.virtual-controls {
+  height:60px; 
+  width:350px; 
+  display:inline-block;
+}
+  .keybutton {
+  background-color: transparent;
   height:50px;
   line-height:50px;
-  width:50px;
+  width:100px;
   margin-left:5px;
   margin-bottom:5px;
   text-align:center;
   vertical-align:middle;
   border:1px solid black;
-  position:relative;
   float:left;
-  font-size:12pt;
-  font-weight:bold;
 }

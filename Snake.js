@@ -213,8 +213,8 @@ const Apple = function() {
 };
 
 Apple.prototype.draw = function () {
-  this.posit.drawCircle(spectrapple[0]);
-  //this.posit.drawCircle(spectrapple[Math.floor(Math.random() * spectrapple.length) + 1]);
+  //this.posit.drawCircle(spectrapple[0]);
+  this.posit.drawCircle(spectrapple[Math.floor(Math.random() * spectrapple.length) + 1]);
   //this.posit.drawCircle(hue); 
 
 };

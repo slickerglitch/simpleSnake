@@ -3,7 +3,7 @@ function setCurrentFocus(obj) {
 }
 
 $(document).ready(function () {
-  $('#NAME').click(function () {
+  $('#virtual-controls').click(function () {
     $('#keyboard').slideDown();
   })
 });
