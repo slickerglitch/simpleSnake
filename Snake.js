@@ -28,7 +28,7 @@ const drawBorder = function () {
   contex.fillStyle = 'Gray';
   contex.fillRect(0, 0, width, blockSize);
   contex.fillRect(0, height - blockSize, width, blockSize);
-  contex.fillRect(0, 0, width, blockSize);
+  contex.fillRect(0, 0, blockSize, width);
   contex.fillRect(width - blockSize, 0, blockSize, height);
 };
 
