@@ -1,5 +1,6 @@
-
-
+body {
+  font: 'Menlo';
+}
 #canvas {
     position: absolute;
     right: 0;
@@ -20,29 +21,21 @@
   float: left;
 }
 
-#canvas {
-    z-index: 0;
-}
 
-#keyboard{
-display:none;
+#keyboard {
+  display:none;
 }
-.keybutton{
-   height:50px;
-   line-height:50px;
-   width:50px;
-   margin-left:5px;
-   margin-bottom:5px;
-   text-align:center;
-   vertical-align:middle;
-   border:1px solid black;
-    position:relative;
-    float:left;
- font-family:VERDANA;
- font-size:12pt;
- font-weight:bold;
-}
-.keybutton:hover{
- background:blue;
-    color:white;
+.keybutton {
+  height:50px;
+  line-height:50px;
+  width:50px;
+  margin-left:5px;
+  margin-bottom:5px;
+  text-align:center;
+  vertical-align:middle;
+  border:1px solid black;
+  position:relative;
+  float:left;
+  font-size:12pt;
+  font-weight:bold;
 }
