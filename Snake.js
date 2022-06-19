@@ -21,6 +21,7 @@ const intervalId = setInterval(function() {
   apple.draw();
 
   drawBorder();
+  //drawSquare(); 
 
 }, 300);
 
@@ -33,16 +34,19 @@ const drawBorder = function () {
 };
 
 const drawScore = function () {
-  contex.font = '20px Courier';
-  contex.fillStyle = 'Black';
+  contex.font = '15px Menlo';
+  contex.fillStyle = 'Brown';
   contex.textAlign = 'left';
-  contex.textBaseLine = 'top';
-  contex.fillText('Score: ' + score, blockSize, blockSize);
+  contex.textBaseline = 'top';
+  contex.fillText('points ' + score, blockSize, blockSize);
+  //contex.fillText('Ssssssuper Snake!', 50, 50);
+  //contex.fillText('points ' + score, 50, 50);
+
 };
 
 const endGame = function() { 
   clearInterval(intervalId); // call inbuilt fxn: clearInterval
-  contex.font = '60px Courier';
+  contex.font = '60px Menlo';
   contex.fillStyle = 'Black';
   contex.textAlign = 'center';
   contex.textBaseline = 'middle';
