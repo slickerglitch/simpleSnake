@@ -11,7 +11,7 @@ const heightInBlocks = height / blockSize;
 
 let score = 0;
 
-const intervalId = setInterval(function() { 
+const intervalId = setInterval(() => { 
   contex.clearRect(0, 0, width, height);
   
   drawScore();
@@ -25,7 +25,7 @@ const intervalId = setInterval(function() {
 
 }, 300);
 
-const drawBorder = function () {
+const drawBorder = () => {
   contex.fillStyle = 'Gray';
   contex.fillRect(0, 0, width, blockSize);
   contex.fillRect(0, height - blockSize, width, blockSize);
@@ -33,7 +33,7 @@ const drawBorder = function () {
   contex.fillRect(width - blockSize, 0, blockSize, height);
 };
 
-const drawScore = function () {
+const drawScore = () => {
   contex.font = '15px Menlo';
   contex.fillStyle = 'Brown';
   contex.textAlign = 'left';
@@ -41,36 +41,42 @@ const drawScore = function () {
   contex.fillText('points ' + score, blockSize + 10, blockSize + 10);
   //contex.fillText('Ssssssuper Snake!', 50, 50);
   //contex.fillText('points ' + score, 50, 50);
-
 };
 
-const endGame = function() { 
+const endGame = () => { 
   clearInterval(intervalId); // call inbuilt fxn: clearInterval
   contex.font = '60px Menlo';
   contex.fillStyle = 'Black';
   contex.textAlign = 'center';
   contex.textBaseline = 'middle';
   contex.fillText('Game Over', width / 2, height / 2);
+  //return;
+};
+
+const spectrapple = ['Red', 'Orange', 'Magenta', 'Yellow', 'Green'];
+
+// Directions Assigned to Keys
+const directions = {
+  38: 'top',
+  40: 'down',
+  39: 'right',
+  37: 'left',
 };
 
 const circle = (x, y, radius, fillCircle) => { 
   contex.beginPath(); 
   contex.arc(x, y, radius, 0, Math.PI * 2, false);
-  //fillCircle ? contex.fill() : contex.stroke(); 
-  if (fillCircle) { 
-    contex.fill();
-  } else { 
-    contex.stroke();
-  }
+  fillCircle ? contex.fill() : contex.stroke(); 
 };
 
 
 
 //#region Block
 // Block Constructor
-const Block = function(col, row) { 
+const Block = function (col, row) {  //hue) { 
   this.col = col;
   this.row = row; 
+  //this.hue = hue; 
 };
 
 // Block Methods
@@ -124,23 +130,16 @@ Snake.prototype.draw = function() {
 };
 
 Snake.prototype.move = function() {
-  let head = this.segments[0];
-  // Do we ever reassign the head for any reason?
-  // If not, use `const` instead of `let`
+  const head = this.segments[0];
   let newHead;
-  // Take the directionent state of travel and update it to the nextDirection
+
+  // Take the directional state of travel and update it to the nextDirection
   this.direction = this.nextDirection;
 
-  if (this.direction === 'right') {
-    // Snake grows from the head, not the tail
-    newHead = new Block(head.col + 1, head.row);
-  } else if (this.direction === 'down') {
-    newHead = new Block(head.col, head.row + 1);
-  } else if (this.direction === 'left') {
-    newHead = new Block(head.col - 1, head.row);
-  } else if (this.direction === 'top') {
-    newHead = new Block(head.col, head.row - 1);
-  }
+  this.direction === 'right' ? newHead = new Block(head.col + 1, head.row)
+    : this.direction === 'down' ? newHead = new Block(head.col, head.row + 1)
+      : this.direction === 'left' ? newHead = new Block(head.col - 1, head.row)
+        : newHead = new Block(head.col, head.row - 1); 
   
   if (this.bump(newHead)) {
     endGame();
@@ -148,14 +147,16 @@ Snake.prototype.move = function() {
   }
 
   this.segments.unshift(newHead);
-  // Validate the apple's directionent position, then update score, and move apple
+
+  // Validate the apple's directionent position, update score, move apple
   if (newHead.equal(apple.posit)) {
     score++;
     apple.move();
+    // apple.redShift(); 
   } else {
     this.segments.pop();
   }
-  // -Note-> Do I want to change the conditions for when the apple is re-placed?
+  // // -Note-> Do I want to change the conditions for when the apple is re-placed?
   // Why or why not?
   //newHead.equal(apple.posit) ? score++ : this.segments.pop();
 };
@@ -195,13 +196,6 @@ Snake.prototype.tack = function (newDirection) {
 //#endregion Snake
 const snake = new Snake();
 
-// Directions Assigned to Keys
-const directions = {
-  38: 'top',
-  40: 'down',
-  39: 'right',
-  37: 'left',
-};
 
 // Event Handler
 $('body').keydown((keystroke) => { 
@@ -219,17 +213,22 @@ const Apple = function() {
 };
 
 Apple.prototype.draw = function () {
-  this.posit.drawCircle('Red');
+  this.posit.drawCircle(spectrapple[0]);
+  //this.posit.drawCircle(spectrapple[Math.floor(Math.random() * spectrapple.length) + 1]);
+  //this.posit.drawCircle(hue); 
+
 };
 
 Apple.prototype.move = function() { 
   let randoCol = Math.floor(Math.random() * (widthInBlocks - 2)) + 1;
   let randoRow = Math.floor(Math.random() * (heightInBlocks - 2)) + 1;
-  this.posit = new Block(randoCol, randoRow);
+  //let randoHue = spectrapple[Math.floor(Math.random() * spectrapple.length) + 1];
+  this.posit = new Block(randoCol, randoRow); //randoHue);
 };
 
-//#endregion Apple
 const apple = new Apple(); 
+
+//#endregion Apple
 
 // // Use `Snake` && `Apple` constructors to create their respective objects
 
