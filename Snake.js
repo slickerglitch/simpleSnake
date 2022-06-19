@@ -11,14 +11,12 @@ const heightInBlocks = height / blockSize;
 
 let score = 0;
 
-
-// const intervalId = setInterval(function () {
 const intervalId = setInterval(function() { 
   contex.clearRect(0, 0, width, height);
   
   drawScore();
 
-  snake.move();
+  //snake.move();
   snake.draw();
   apple.draw();
 
@@ -47,7 +45,7 @@ const endGame = function() {
   contex.font = '60px Courier';
   contex.fillStyle = 'Black';
   contex.textAlign = 'center';
-  contex.textBaseLine = 'middle';
+  contex.textBaseline = 'middle';
   contex.fillText('Game Over', width / 2, height / 2);
 };
 
@@ -118,7 +116,7 @@ const Snake = function() {
 // Snake Methods
 Snake.prototype.draw = function() { 
   for (let i = 0; i < this.segments.length; i++) { 
-    this.segments[i].drawSquare('Blue'); 
+    this.segments[i].drawSquare('Green'); 
   }
 };
 
