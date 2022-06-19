@@ -31,3 +31,18 @@ When(user presses a key) {
     Update the direction of the snake;
   }
 }
+
+### HTML
+[ ] Create basic HTML file with boilerplate
+[ ] Add appropriate <script></script> tags to bring-in JS fxns 
+
+### JavaScript
+  # Constructors
+  [ ] Apple
+  [ ] Block
+  [ ] 
+
+  
+  # Functions
+
+  
