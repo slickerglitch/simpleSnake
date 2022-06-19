@@ -1,10 +1,11 @@
 function setCurrentFocus(obj) {
   current_focus = obj.id;
 }
+
 $(document).ready(function () {
   $('#NAME').click(function () {
     $('#keyboard').slideDown();
-  });
+  })
 });
 
 $(document).ready(function () {
@@ -12,6 +13,7 @@ $(document).ready(function () {
     $('#' + current_focus).focus();
   });
 });
+
 $(document).ready(function () {
   $('#back').click(function () {
     moveCursor(-1, current_focus);
