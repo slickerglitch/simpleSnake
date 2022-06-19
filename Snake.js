@@ -16,13 +16,13 @@ const intervalId = setInterval(function() {
   
   drawScore();
 
-  //snake.move();
+  snake.move();
   snake.draw();
   apple.draw();
 
   drawBorder();
 
-}, 100);
+}, 300);
 
 const drawBorder = function () {
   contex.fillStyle = 'Gray';
@@ -49,7 +49,6 @@ const endGame = function() {
   contex.fillText('Game Over', width / 2, height / 2);
 };
 
-// Draw a Circle for some reason (see: Ch 14 JS for Kids)
 const circle = (x, y, radius, fillCircle) => { 
   contex.beginPath(); 
   contex.arc(x, y, radius, 0, Math.PI * 2, false);
@@ -158,26 +157,25 @@ Snake.prototype.move = function() {
 };
 
 // Snake method `bump` handles collisions
-Snake.prototype.bump = head => { 
-  let topBump;
-  let downBump;
-  let rightBump;
-  let leftBump;
-
-  const wallBump = topBump || downBump || rightBump || leftBump; 
+Snake.prototype.bump = function (head) {
+  let topBump = head.col === 0;
+  let downBump = head.row === 0;
+  let rightBump = head.col === widthInBlocks;
+  let leftBump = head.row === heightInBlocks;
   let selfBump = false; // Start with `selfBump` state set to false
+  const wallBump = topBump || downBump || rightBump || leftBump;
 
   // Traverse `segments` array and verify position of the head
-  for (let i = 0; i < this.segments.length; i++) { 
+  for (let i = 0; i < this.segments.length; i++) {
     if (head.equal(this.segments[i])) {
       selfBump = true; // Ouch. :(
     }
   }
 
-  return wallBump || selfBump; 
+  return wallBump || selfBump;
 };
 
-Snake.prototype.tack = (newDirection) => {
+Snake.prototype.tack = function (newDirection) {
   if (this.direction === 'top' && newDirection === 'down') { 
     return;
   } else if (this.direction === 'right' && newDirection === 'left') { 
