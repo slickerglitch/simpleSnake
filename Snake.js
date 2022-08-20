@@ -12,7 +12,7 @@ const heightInBlocks = height / blockSize;
 let score = 0;
 
 const intervalId = setInterval(() => { 
-  contex.clearRect(0, 0, width, height);
+  contex.clearRect(0 , 0, width, height);
   
   drawScore();
 
@@ -23,7 +23,7 @@ const intervalId = setInterval(() => {
   drawBorder();
   //drawSquare(); 
 
-}, 300);
+}, 50); // Snake travel speed set with setInterval built-in function
 
 const drawBorder = () => {
   contex.fillStyle = 'Gray';

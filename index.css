@@ -26,6 +26,7 @@ body {
 .virtual-controls {
   height:60px; 
   width:350px; 
+  offset-distance: 15px;
   display:inline-block;
 }
   .keybutton {

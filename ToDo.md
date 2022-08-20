@@ -39,7 +39,7 @@ When(user presses a key) {
   # Constructors
   [ ] Apple
   [ ] Block
-  [ ] 
+  [ ] Square
 
   
   # Functions
