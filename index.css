@@ -2,24 +2,21 @@ body {
   font: 'Menlo';
 }
 #canvas {
-    position: relative;
-    right: 0;
-    left: 0;
-    top: 0;
-    bottom: 0;
     margin: auto;
+    margin-left: auto;
+    margin-right: auto;
     display: block;
 }
 .buttonContainer {
   margin-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
   width:300px;
   position: relative;
 }
 .click-me {
   color: blueviolet; 
 }
-
-
 #keyboard {
   display:none;
 }

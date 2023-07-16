@@ -21,9 +21,8 @@ const intervalId = setInterval(() => {
   apple.draw();
 
   drawBorder();
-  //drawSquare(); 
 
-}, 50); // Snake travel speed set with setInterval built-in function
+}, 150); // Snake travel speed set with setInterval built-in function
 
 const drawBorder = () => {
   contex.fillStyle = 'Gray';
@@ -68,8 +67,6 @@ const circle = (x, y, radius, fillCircle) => {
   contex.arc(x, y, radius, 0, Math.PI * 2, false);
   fillCircle ? contex.fill() : contex.stroke(); 
 };
-
-
 
 //#region Block
 // Block Constructor

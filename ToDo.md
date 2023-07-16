@@ -32,16 +32,14 @@ When(user presses a key) {
 }
 
 ### HTML
-[ ] Create basic HTML file with boilerplate
-[ ] Add appropriate <script></script> tags to bring-in JS fxns 
+[X] Create basic HTML file with boilerplate
+[X] Add appropriate <script></script> tags to bring-in JS fxns 
 
 ### JavaScript
   # Constructors
-  [ ] Apple
-  [ ] Block
-  [ ] Square
+  [X] Apple
+  [X] Block
+  [X] Square
 
-  
-  # Functions
 
   
